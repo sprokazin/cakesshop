@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Cake shop admin</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<a href="/admin-panel/admin-cakes">
+    <button type="button"><- Cakes List</button>
+</a>
+<form action="#" method="post" th:action="@{/admin-panel/admin-get-cake/edit}" th:object="${cake}">
+    <p>Name: <input th:field="*{name}" type="text"/></p>
+    <p>Calories: <input step="any" th:field="*{calories}" type="number"></p>
+    <p>Weight: <input step="any" th:field="*{weight}" type="number"></p>
+    <p>Price: <input step="any" th:field="*{price}" type="number"></p>
+    <p>Shelf life:</p>
+    <p><input th:type="datetime" th:field="*{shelfLife}" type="text"/></p>
+    <p>Composition:</p>
+    <p><textarea rows="10" th:field="*{composition}" type="text"></textarea></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>

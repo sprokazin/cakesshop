@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Cake shop admin</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h3>
+    <a th:href="@{/admin-panel/admin-orders}"><-Orders list</a>
+</h3>
+<form action="#" th:action="@{/admin-panel/admin-get-order/{id}(id=${order.id})}" th:object="${status}" method="post">
+    <select id="status" name="status">
+        <option th:each="statusType : ${T(com.sprokazin.cakesShop.orders.OrderStatus).values()}"
+                th:value="${statusType}"
+                th:text="${statusType}"
+                th:selected="${order.orderStatus == statusType}">
+        </option>
+    </select>
+    <input type="submit" value="Submit" />
+</form>
+<table class="table table-striped" border="1" cellpadding="2">
+    <tbody>
+    <tr>
+        <td th:text="${order.usersName}"></td>
+        <td th:text="${order.usersNumber}"></td>
+        <td th:text="${order.address}"></td>
+        <td th:text="${order.time}"></td>
+        <td th:text="${order.deliveryMethod}"></td>
+        <td th:text="${order.paymentMethod}"></td>
+        <td th:text="${order.orderStatus}"></td>
+        <td th:text="${order.allCakesNames}"></td>
+        <td th:text="${order.price}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

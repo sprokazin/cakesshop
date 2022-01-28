@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Cake shop admin</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h3>
+    <a th:href="@{/admin-panel/admin-menu}"><- Menu</a>
+</h3>
+<table border="1" cellpadding="2" class="table table-striped">
+    <thead>
+    <tr>
+        <th>User's name</th>
+        <th>User's number</th>
+        <th>User's address</th>
+        <th>Time</th>
+        <th>Delivery method</th>
+        <th>Payment method</th>
+        <th>Order status</th>
+        <th>Cakes names</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.usersName}"></td>
+        <td th:text="${order.usersNumber}"></td>
+        <td th:text="${order.address}"></td>
+        <td th:text="${order.time}"></td>
+        <td th:text="${order.deliveryMethod}"></td>
+        <td th:text="${order.paymentMethod}"></td>
+        <td th:text="${order.orderStatus}"></td>
+        <td th:text="${order.allCakesNames}"></td>
+        <td th:text="${order.price}"></td>
+        <td>
+            <form action="#" method="get" th:action="@{/admin-panel/admin-get-order/delete/{id}(id=${order.id})}">
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+        <td>
+            <a th:href="@{/admin-panel/admin-get-order/{id} (id=${order.id})}">Edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

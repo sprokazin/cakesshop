@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+  <title>Cake shop admin</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h3>
+<a th:href="@{/admin-panel/admin-menu}"><- Menu</a>
+</h3>
+<table class="table table-striped" border="1" cellpadding="2">
+  <thead>
+  <tr>
+    <th>User's name</th>
+    <th>User's number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.number}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
